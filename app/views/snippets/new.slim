@@ -1,0 +1,8 @@
+.container-fluid.col-lg-10
+  h1 Create new snippet
+  = bootstrap_form_for @snippet do |f|
+    = f.text_field :title
+    = f.text_area :body, disabled: true
+    #editor style='height: 300px;'
+    = f.submit 'Save'
+

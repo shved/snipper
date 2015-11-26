@@ -14,6 +14,7 @@ gem 'ace-rails-ap'
 gem 'slim'
 gem 'bullet'
 gem 'twitter-bootstrap-rails'
+gem 'bootstrap_form'
 gem 'devise'
 
 group :development, :test do

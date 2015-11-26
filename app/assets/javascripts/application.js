@@ -15,5 +15,5 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require ace-rails-ap
-//= require ace/theme-monokai
+//= require ace/theme-github
 //= require_tree .
