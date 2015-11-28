@@ -1,0 +1,9 @@
+.container-fluid.col-md-10
+  h1 Create new snippet
+  = bootstrap_form_for @snippet do |f|
+    = f.text_field :title
+    = f.hidden_field :body
+    label.control-label Type code here
+    #editor data-action='new'
+    = f.submit 'Save'
+

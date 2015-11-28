@@ -1,0 +1,7 @@
+.container-fluid.col-md-10
+  h1 All snippets
+  ul.list-group
+    - @snippets.each do |snippet|
+      li.list-group-item
+        h3
+          = link_to snippet.title, snippet_path(snippet)
