@@ -4,3 +4,10 @@
   input type='hidden' id='snippet_body' value=(@snippet.body)
 
   #editor data-action='show'
+
+  = render partial: 'comments'
+
+  .form-group.col-md-6
+    = bootstrap_form_for @comment, url: snippet_comments_path(@snippet) do |f|
+      = f.text_area :body
+      = f.submit 'Save'
