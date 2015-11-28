@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'snippets#index'
 
-  resources :snippets
+  resources :snippets, except: [:destroy, :edit] do
+    resources :comments, only: :create
+  end
 end
