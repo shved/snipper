@@ -1,0 +1,6 @@
+.container-fluid.col-md-10
+  h1= @snippet.title
+
+  input type='hidden' id='snippet_body' value=(@snippet.body)
+
+  #editor data-action='show'
