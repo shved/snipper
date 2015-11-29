@@ -16,11 +16,14 @@ class SnippetsController < ApplicationController
 
   def create
     @snippet = Snippet.create(snippet_params.merge(user: current_user))
+
     if @snippet.errors.empty?
-      redirect_to :root
+      flash[:success] = 'Your snippet saved successfully'
     else
-      render :noting
+      flash[:error] = @snippet.errors.full_messages.first
     end
+
+    redirect_to :root
   end
 
   def my_snippets
