@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @comment = Comment.create(comment_params.merge(user: current_user, snippet_id: params[:snippet_id]))
 

@@ -3,8 +3,7 @@ html
   head
     meta charset="utf-8" /
     title Snipper
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
-    = javascript_include_tag 'application', 'data-turbolinks-track': true
+    = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
   body
     = render 'layouts/header'
@@ -18,3 +17,5 @@ html
         .panel-body
           = flash_messages
           = yield
+
+    = javascript_include_tag 'application'

@@ -16,10 +16,11 @@ gem 'bullet'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap_form'
 gem 'devise'
-gem 'therubyracer'
 
-gem 'puma'
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'puma'
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'byebug'

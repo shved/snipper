@@ -1,8 +1,8 @@
 module ApplicationHelper
   BOOTSTRAP_FLASH_MESSAGES = {
     success: 'alert-success',
-    error:   'alert-error',
-    alert:   'alert-block',
+    error:   'alert-danger',
+    alert:   'alert-warning',
     notice:  'alert-info'
   }
 
