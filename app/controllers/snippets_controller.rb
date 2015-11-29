@@ -19,11 +19,11 @@ class SnippetsController < ApplicationController
 
     if @snippet.errors.empty?
       flash[:success] = 'Your snippet saved successfully'
+      redirect_to my_snippets_snippets_path
     else
       flash[:error] = @snippet.errors.full_messages.first
+      redirect_to new_snippet_path
     end
-
-    redirect_to :root
   end
 
   def my_snippets

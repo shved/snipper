@@ -5,6 +5,7 @@ $(document).ready ->
     editor = ace.edit('editor')
     editor.setTheme('ace/theme/github')
     editor.$blockScrolling = Infinity
+    editor.setShowPrintMargin(false)
 
   if $('#editor').data('action') == 'new'
     editor.getSession().on('change',() ->
