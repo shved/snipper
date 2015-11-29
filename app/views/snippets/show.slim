@@ -1,13 +1,13 @@
-.container-fluid.col-md-10
-  h1= @snippet.title
+h1= @snippet.title
 
-  input type='hidden' id='snippet_body' value=(@snippet.body)
+input type='hidden' id='snippet_body' value=(@snippet.body)
 
-  #editor data-action='show'
+#editor data-action='show'
 
-  = render partial: 'comments'
+= render partial: 'comments'
 
+- if current_user && @snippet.user != current_user
   .form-group.col-md-6
-    = bootstrap_form_for @comment, url: snippet_comments_path(@snippet) do |f|
-      = f.text_area :body
+    = bootstrap_form_for @snippet.comments.build(snippet_id: params[:id]), url: snippet_comments_path(@snippet) do |f|
+      = f.text_area :body, label: 'Leave a comment'
       = f.submit 'Save'

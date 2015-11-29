@@ -1,4 +1,6 @@
 class SnippetsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :my_snippets]
+
   def index
     @snippets = Snippet.all
   end
@@ -6,7 +8,6 @@ class SnippetsController < ApplicationController
   def show
     @snippet = Snippet.find(params[:id])
     @comments = @snippet.comments
-    @comment = @snippet.comments.build(snippet_id: params[:id])
   end
 
   def new
@@ -14,12 +15,17 @@ class SnippetsController < ApplicationController
   end
 
   def create
-    @snippet = Snippet.create(snippet_params)
+    @snippet = Snippet.create(snippet_params.merge(user: current_user))
     if @snippet.errors.empty?
       redirect_to :root
     else
       render :noting
     end
+  end
+
+  def my_snippets
+    @snippets = Snippet.where(user: current_user)
+    render :index
   end
 
   private

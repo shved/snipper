@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources :snippets, except: [:destroy, :edit] do
     resources :comments, only: :create
+    get :my_snippets, on: :collection
   end
 end

@@ -1,4 +1,6 @@
 .comments
-  h2 Comments
-  - @comments.each do |comment|
-    p= comment.body
+  - if @comments.any?
+    h2 Comments
+    - @comments.each do |comment|
+      p.small= "#{ comment.try!(:user).try!(:email) } wrote at #{ comment.created_at }"
+      p= comment.body
