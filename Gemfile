@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.3'
 
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
@@ -15,6 +16,10 @@ gem 'bullet'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap_form'
 gem 'devise'
+gem 'therubyracer'
+
+gem 'puma'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'

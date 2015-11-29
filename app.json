@@ -1,0 +1,8 @@
+{
+  "name": "Snipper",
+  "description": "Simple application to store and comment snippets",
+  "image": "heroku/ruby",
+  "repository": "https://github.com/shved/snipper.git",
+  "keywords": ["ruby", "rails", "snippet"],
+  "addons": [ "heroku-postgresql" ]
+}
