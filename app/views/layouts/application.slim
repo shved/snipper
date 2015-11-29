@@ -8,6 +8,7 @@ html
     = csrf_meta_tags
   body
     = render 'layouts/header'
+
     .container
       .row
         .col-md-2.col-md-offset-9
@@ -15,4 +16,5 @@ html
         .col-md-3
       .panel.panel-default
         .panel-body
+          = flash_messages
           = yield
