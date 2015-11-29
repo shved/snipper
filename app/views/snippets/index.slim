@@ -1,5 +1,5 @@
-.container-fluid.col-md-10
-  h1 All snippets
-  - @snippets.each do |snippet|
-    h3
-      = link_to snippet.title, snippet_path(snippet)
+h1 All snippets
+- @snippets.each do |snippet|
+  h4
+    = link_to snippet.title, snippet_path(snippet)
+    p.small= "Author: #{ snippet.user.email }" unless params[:action] == 'my_snippets'

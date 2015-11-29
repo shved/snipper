@@ -7,5 +7,14 @@ nav.navbar.navbar-default.navbar-static-top
       li
         = link_to 'All snippets', snippets_path
       li
+        = link_to 'My snippets', controller: 'snippets', action: 'my_snippets' if current_user
+      li
         = link_to 'Create snippet', new_snippet_path
 
+    .navbar-right
+      - if current_user
+        = current_user.email
+        =< link_to 'Log out', destroy_user_session_path, method: :delete
+      - else
+        = link_to 'Register', new_user_registration_path
+        = link_to 'Sign in', new_user_session_path
