@@ -1,4 +1,4 @@
-h2 All snippets
+h2= params[:action] == 'my_snippets' ? 'My snippets' : 'All snippets'
 - @snippets.each do |snippet|
   .container.container-snippet
     h4= link_to snippet.title, snippet_path(snippet)
