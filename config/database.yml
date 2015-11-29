@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: snipper
+  username: shvedchenko
+  password:
+
+test:
+  <<: *default
+  database: snipper_test
+
+production:
+  <<: *default
+  database: snipper_production
+  username: snipper
+  password: <%= ENV['SNIPPER_DATABASE_PASSWORD'] %>
