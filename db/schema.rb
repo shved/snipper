@@ -28,11 +28,9 @@ ActiveRecord::Schema.define(version: 20151128233027) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "snippets", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
+    t.string  "title"
+    t.text    "body"
+    t.integer "user_id"
   end
 
   add_index "snippets", ["title"], name: "index_snippets_on_title", using: :btree
