@@ -8,6 +8,7 @@ namespace :boketto do
       puts "Appending existing config"
       result = YAML.load(File.read(config_path))
     else
+      puts "Creating a new config"
       result = {}
     end
 
@@ -18,9 +19,9 @@ namespace :boketto do
     ActiveRecord::Base.descendants.map(&:name).each do |model_name|
       columns = model_name.constantize.column_names
       if result[model_name] # check if a model is in the config already
-        columns.reject { |c| c.in?(result[model_name].keys) }
+        columns.reject! { |c| c.in?(result[model_name].keys) }
       end
-      result[model_name].merge!(Hash[columns.map { |c| [c, ''] })
+      result[model_name].merge!( Hash[ columns.map { |c| [c, ''] } ] )
     end
 
     # write all the models and their column names into a YAML file
