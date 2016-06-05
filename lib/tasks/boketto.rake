@@ -12,7 +12,7 @@ namespace :boketto do
       result = {}
     end
 
-    output = File.open(config_path, 'w')
+    output_file = File.open(config_path, 'w')
 
     # get all the models are on your app and feed the config data
     Rails.application.eager_load!
@@ -20,13 +20,15 @@ namespace :boketto do
       columns = model_name.constantize.column_names
       if result[model_name] # check if a model is in the config already
         columns.reject! { |c| c.in?(result[model_name].keys) }
+        result[model_name].merge!( Hash[ columns.map { |c| [c, ''] } ] ) # then merge them
+      else
+        result[model_name] = Hash[columns.map { |c| [c, ''] }] # otherwise just populate the hash
       end
-      result[model_name].merge!( Hash[ columns.map { |c| [c, ''] } ] )
     end
 
     # write all the models and their column names into a YAML file
-    f << result.to_yaml
-    f.close
+    output_file << result.to_yaml
+    output_file.close
   end
 end
 
